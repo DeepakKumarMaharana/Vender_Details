@@ -34,6 +34,11 @@ public class VenderController {
 		
 		return venderService.updateVenderById(id, updatedVender);
 	}
+	@GetMapping("/home")
+	public String home() {
+		
+		return "Hi deepak";
+	}
 	
 	
 }
