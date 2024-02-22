@@ -3,6 +3,8 @@ package com.vender_details.vender_details.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,11 +36,11 @@ public class VenderController {
 		
 		return venderService.updateVenderById(id, updatedVender);
 	}
-	@GetMapping("/home")
-	public String home() {
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Vender>deleteById(@PathVariable Long id){
+		venderService.deleteById(id);
+		return ResponseEntity.ok().build();
 		
-		return "Hi deepak";
 	}
-	
-	
 }
